@@ -1,0 +1,76 @@
+import java.util.Scanner;
+
+class Square {                               //Here we have written the whole code but haven't used any pillars of object orientations
+    float length;                            //namely Encapsulation , Abstraction , Inheritance and Polymorphism
+    float area;
+
+    public void acceptInput() {
+        Scanner Sc = new Scanner(System.in);
+        System.out.println("Enter the length of square: ");
+        length = Sc.nextFloat();
+    }
+
+    public void compute() {
+        area = length * length;
+        System.out.println("Area of this Square is: " + area);
+    }
+    public void display() {
+        System.out.println("Area of this Square is: " + area);
+    }
+}
+class Rectangle {
+    float length;
+    float breadth;
+    float area;
+
+    public void acceptInput() {
+        Scanner Sc = new Scanner(System.in);
+        System.out.println("Enter the length of Rectangle: ");
+        length = Sc.nextFloat();
+        System.out.println("Enter the breadth of Rectangle: ");
+        breadth = Sc.nextFloat();
+    }
+    public void compute() {
+        area = length * breadth;
+        System.out.println("Area of this Reactangle is: " + area);
+    }
+    public void display() {
+        System.out.println("Area of this Rectangle is: " + area);
+    }
+}
+class Circle {
+    float radius;
+    float area;
+
+    public void acceptInput() {
+        Scanner Sc = new Scanner(System.in);
+        System.out.println("Enter the radius of Circle: ");
+        radius= Sc.nextFloat();
+    }
+    public void compute() {
+        area = 3.14f * radius * radius;
+    }
+    public void display() {
+        System.out.println("Area of this Circle is: " + area);
+    }
+}
+public class codeWithoutOops {
+    public static void main(String[] args) {
+
+        Square s = new Square();
+        Rectangle r = new Rectangle();
+        Circle c = new Circle();
+        s.acceptInput();
+        s.compute();                        //This code is alright but is very hefty and problematic regarding flexibility and code reduction.
+        s.display();
+
+        r.acceptInput();
+        r.compute();
+        r.display();
+
+        c.acceptInput();
+        c.compute();
+        c.display();
+
+    }
+}
