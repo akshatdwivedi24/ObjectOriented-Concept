@@ -1,0 +1,74 @@
+import java.util.Scanner;
+
+abstract class Shape{                                            //Abstraction is done through abstract keyword.
+    float area;
+    abstract public void accessInput();
+    abstract public void compute();
+    public void display(){
+        System.out.println("The Area is: " + area);
+    }
+}
+class Square1 extends Shape{                                     //Inheritance is Done through extends keyword.
+    private float length;                                        //Encapsulation is Done through private keyword.
+    Scanner Sc = new Scanner(System.in);
+    @Override
+    public void accessInput() {
+        System.out.println("Enter the length of the rectangle: ");
+        length = Sc.nextFloat();
+    }
+
+    @Override
+    public void compute() {
+        area = length * length;
+    }
+}
+class Rectangle1 extends Shape{
+    private float length;
+    private float width;
+    Scanner Sc = new Scanner(System.in);
+    @Override
+    public void accessInput() {
+        System.out.println("Enter the length of the rectangle: ");
+        length = Sc.nextFloat();
+        System.out.println("Enter the width of the rectangle: ");
+        width = Sc.nextFloat();
+    }
+    @Override
+    public void compute() {
+        area = length * width;
+    }
+}
+class Circle1 extends Shape{
+    private float radius;
+    Scanner Sc = new Scanner(System.in);
+    @Override
+    public void accessInput() {
+        System.out.println("Enter the length of the rectangle: ");
+        radius = Sc.nextFloat();
+    }
+    @Override
+    public void compute() {
+        area = 3.14f * radius * radius;
+    }
+}
+class Geometry{
+    public void permit(Shape ref){
+        ref.accessInput();
+        ref.compute();                                  //Polymorphism is done through Loose Coupling by using Parent Class Reference
+        ref.display();
+    }
+}
+public class codeWithOops {
+    public static void main(String[] args) {
+
+        Square1 s1 = new Square1();
+        Rectangle1 r1 = new Rectangle1();
+        Circle1 c1 = new Circle1();
+
+        Geometry g1 = new Geometry();
+
+        g1.permit(s1);
+        g1.permit(r1);
+        g1.permit(c1);
+    }
+}
